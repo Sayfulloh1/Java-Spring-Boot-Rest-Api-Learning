@@ -31,9 +31,10 @@ public class StudentController {
 @PutMapping(path = "{studentId}")
 public void updateStudent(
        @PathVariable("studentId") Long studentId,
-       @RequestParam(required = false) String studentName,
-       @RequestParam(required = false) String studentEmail
+       @RequestParam(name="name",required = false) String studentName,
+       @RequestParam(name = "email",required = false) String studentEmail
 ){
+    System.out.println("Id "+studentId+" Student Name "+studentName+" Student email "+studentEmail);
         studentService.updateStudent(studentId,studentName,studentEmail);
 }
 
